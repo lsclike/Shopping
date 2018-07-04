@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total_price: 9.99
+  shipping_address: MyString
+  delivery_date: 2018-07-04
+
+two:
+  total_price: 9.99
+  shipping_address: MyString
+  delivery_date: 2018-07-04
