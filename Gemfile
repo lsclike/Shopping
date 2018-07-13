@@ -31,7 +31,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 gem 'aasm'
 gem 'kaminari'
 gem 'sendgrid-ruby'
@@ -45,7 +44,10 @@ gem 'sidekiq'
 gem 'sidekiq-scheduler'
 gem 'roo', '~> 2.7.0 '
 gem 'dotenv-rails'
-gem 'rubocop'
+gem 'rubocop', require: false
+gem 'bootstrap', '~> 4.1.1'
+gem 'sprockets-rails'
+gem 'jquery-rails'
 
 
 
