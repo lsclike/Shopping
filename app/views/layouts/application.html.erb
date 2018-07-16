@@ -7,9 +7,50 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+  <nav class="navbar-nav navbar-expand navbar-light">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item navbar-brand">
+          <%= link_to "Login","http://google.com", target: "_blank" ,class: "nav-link", style: 'text-decoration:none'%>
+        </li>
+        <li class="nav-item navbar-brand">
+          <%= link_to "Sign Up", class: "nav-link" %>
+        </li>
+      </ul>
+  </nav>
 
+
+
+    <div class="container">
+      <%= yield %>
+    </div>
+    <div class="container bg-success">
+      <div class="row ">
+        <h3>About</h3>
+        <div class="card bg-card-test-color">
+          <div class="card-body">
+            <p>
+              The style of photography will be customised to your
+
+            </p>
+            <p>
+              Our excellent photographers have many years of
+
+            </p>
+            <p>
+              MyPhoto also provides superb printing
+              options of all shapes and sizes, on any
+              canvas, in any form. From large canvas
+              prints to personalised photo albums,
+              MyPhoto provides it all.
+            </p>
+            <p>
+              MyPhoto provides a full, holistic solution for all
+              your photography needs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
