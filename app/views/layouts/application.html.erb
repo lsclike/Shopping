@@ -7,21 +7,27 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <!--TODO how to add css on the class inside link_to-->
+  <!--TODO flash card to display notifications-->
+  <!--TODO Log out can be click even user not login-->
   <body>
   <nav class="navbar-nav navbar-expand navbar-light">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item navbar-brand">
-          <%= link_to "Login","http://google.com", target: "_blank" ,class: "nav-link", style: 'text-decoration:none'%>
+          <%= link_to "Login", new_user_session_path, class: "nav-link", style: 'text-decoration:none'%>
         </li>
         <li class="nav-item navbar-brand">
-          <%= link_to "Sign Up", class: "nav-link" %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link", style: 'text-decoration:none'%>
+        </li>
+        <li class="nav-item navbar-brand">
+          <%= link_to "Log out", destroy_user_session_path, class: "nav-link", method: :delete, style: 'text-decoration:none' %>
         </li>
       </ul>
   </nav>
 
-
-
     <div class="container">
+      <p class="alert alert-success"><%= notice %></p>
+      <p class="alert alert-danger"><%= alert %></p>
       <%= yield %>
     </div>
     <div class="container bg-success">
