@@ -30,18 +30,7 @@ Rails.application.configure do
   end
 
   config.action_mailer.perform_deliveries = true
-
-  # config.action_mailer.delivery_method = :smtp
-  # # config.action_mailer.smtp_settings = {
-  # #     user_name: ENV['SEND_USERNAME'],
-  # #     password: ENV['SEND_PASSWORD'],
-  # #     address: 'smtp.sendgrid.net',
-  # #     port: 587,
-  # #     domain: "testforshopping.com",
-  # #     authentication: :plain,
-  # #     enable_starttls_auto: true
-  # # }
-
+  
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
 

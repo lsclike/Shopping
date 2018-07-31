@@ -45,8 +45,7 @@
 </div>
 <div class="container mb-2">
   <div class="row">
-    <%#= paginate @all %>
-  <% @all.each do |p| %>
+    <% @all.each do |p| %>
       <div class="col rounded img-fluid text-center">
         <%= link_to products_show_path(p) do %>
           <%=image_tag(p.image, size: '100x100', class: "rounded",alt: "no imag")%>
@@ -66,5 +65,10 @@
       </div>
     <% end %>
     </div>
+  <div class="row mt-2">
+    <div class="col d-flex justify-content-center">
+    <%= paginate @all %>
+    </div>
+  </div>
 </div>
 
