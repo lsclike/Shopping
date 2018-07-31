@@ -11,7 +11,12 @@
   <!--TODO flash card to display notifications-->
   <!--TODO Log out can be click even user not login-->
   <body>
-  <nav class="navbar-nav navbar-expand navbar-light">
+    <nav class="navbar-nav navbar-expand navbar-dark bg-dark">
+      <div class="navbar-header">
+        <div class="nav-item navbar-brand">
+          <h4>Header</h4>
+        </div>
+      </div>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item navbar-brand">
           <%= link_to "Login", new_user_session_path, class: "nav-link", style: 'text-decoration:none'%>
@@ -23,39 +28,105 @@
           <%= link_to "Log out", destroy_user_session_path, class: "nav-link", method: :delete, style: 'text-decoration:none' %>
         </li>
       </ul>
-  </nav>
-
-    <div class="container">
-      <p class="alert alert-success"><%= notice %></p>
-      <p class="alert alert-danger"><%= alert %></p>
-      <%= yield %>
-    </div>
-    <div class="container bg-success">
-      <div class="row ">
-        <h3>About</h3>
-        <div class="card bg-card-test-color">
-          <div class="card-body">
-            <p>
-              The style of photography will be customised to your
-
-            </p>
-            <p>
-              Our excellent photographers have many years of
-
-            </p>
-            <p>
-              MyPhoto also provides superb printing
-              options of all shapes and sizes, on any
-              canvas, in any form. From large canvas
-              prints to personalised photo albums,
-              MyPhoto provides it all.
-            </p>
-            <p>
-              MyPhoto provides a full, holistic solution for all
-              your photography needs.
-            </p>
-          </div>
+    </nav>
+  <div class="d-flex">
+    <div class="row" id="body-row">
+    <!-- Sidebar -->
+    <div id="sidebar-container" class="sidebar-expanded d-none d-md-block">
+      <!-- d-* hiddens the Sidebar in smaller devices. Its items can be kept on the Navbar 'Menu' -->
+      <!-- Bootstrap List Group -->
+      <ul class="list-group sticky-top sticky-offset">
+        <!-- Separator with title -->
+        <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+          <small>MAIN MENU</small>
+        </li>
+        <!-- /END Separator -->
+        <!-- Menu with submenu -->
+<!--        <a href="#submenu1" data-toggle="collapse" aria-expanded="false"-->
+<!--           class="bg-dark list-group-item list-group-item-action flex-column align-items-start">-->
+        <%= link_to root_path, class: "bg-dark list-group-item
+                                       list-group-item-action flex-column align-items-start text-white" do %>
+        <div class="d-flex w-100 justify-content-start align-items-center">
+          <span class="fa fa-dashboard fa-fw mr-3"></span>
+          <span class="menu-collapsed">Home</span>
+          <span class="submenu-icon ml-auto"></span>
         </div>
+        <% end %>
+        <!-- Submenu content -->
+        <a href="#submenu2" data-toggle="collapse" aria-expanded="false"
+           class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-start align-items-start">
+            <span class="fa fa-user fa-fw mr-3"></span>
+            <span class="menu-collapsed">Profile</span>
+            <span class="submenu-icon ml-auto"></span>
+          </div>
+        </a>
+        <!-- Submenu content -->
+<!--        click dropined item to come to home-->
+        <div id="submenu2" class="collapse sidebar-submenu">
+          <%= link_to root_path, class: "list-group-item list-group-item-action bg-dark text-white" do%>
+            <span class="menu-collapsed">Settings</span>
+          <% end %>
+          <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+            <span class="menu-collapsed">Password</span>
+          </a>
+        </div>
+        <a href="#" class="bg-dark list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-start align-items-center">
+            <span class="fa fa-tasks fa-fw mr-3"></span>
+            <span class="menu-collapsed">Tasks</span>
+          </div>
+        </a>
+        <!-- Separator with title -->
+        <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+          <small>OPTIONS</small>
+        </li>
+        <!-- /END Separator -->
+        <a href="#" class="bg-dark list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-start align-items-center">
+            <span class="fa fa-calendar fa-fw mr-3"></span>
+            <span class="menu-collapsed">Calendar</span>
+          </div>
+        </a>
+        <a href="#" class="bg-dark list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-start align-items-center">
+            <span class="fa fa-envelope-o fa-fw mr-3"></span>
+            <span class="menu-collapsed">Messages <span class="badge badge-pill badge-primary ml-2">5</span></span>
+          </div>
+        </a>
+        <!-- Separator without title -->
+        <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+          <small>Helping</small>
+        </li>
+        <!-- /END Separator -->
+        <a href="#" class="bg-dark list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-start align-items-center">
+            <span class="fa fa-question fa-fw mr-3"></span>
+            <span class="menu-collapsed">Help</span>
+          </div>
+        </a>
+        <a href="#" data-toggle="sidebar-colapse" class="bg-dark list-group-item list-group-item-action d-flex align-items-center">
+          <div class="d-flex w-100 justify-content-start align-items-center">
+            <span id="collapse-icon" class="fa fa-2x mr-3"></span>
+            <span id="collapse-text" class="menu-collapsed">Collapse</span>
+          </div>
+        </a>
+        <!-- Logo -->
+        <li class="list-group-item logo-separator d-flex justify-content-center">
+          <%= image_tag("Weighting.jpg", size: '100x100', alt: "no imag") %>
+        </li>
+      </ul>
+      <!-- List Group END-->
+    </div>
+  </div>
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="<%= flash_class(key.to_sym) %>" %>
+              <%= value %>
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+      <% end %>
+        <%= yield %>
       </div>
     </div>
   </body>

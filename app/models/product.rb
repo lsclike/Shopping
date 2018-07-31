@@ -4,4 +4,5 @@ class Product < ApplicationRecord
   delegate :name, to: :category, prefix: true
   # delegate :title, :discount_rate, :branding, :category, to: :discount_detail, prefix: true
   mount_uploader :image, AvatarUploader
+
 end

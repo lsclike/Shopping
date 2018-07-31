@@ -1,24 +1,40 @@
 
 <div class="container">
   <h2>Sign up</h2>
-  <%= simple_form_for(@user, url: user_registration_path(@user),method: :post) do |f| %>
-    <%= f.error_notification%>
+  <%= simple_form_for(@user, url: user_registration_path(@user), method: :post) do |f| %>
+    <%# if f.error %>
+<!--      <div id="error_explanation">-->
+<!--        <div class="alert alert-error">-->
+<!--          The form contains <%#= pluralize(f.error.count, "error") %>.-->
+<!--        </div>-->
+<!--        <ul>-->
+          <%# f.error.full_messages.each do |msg| %>
+<!--            <li>* <%#= msg %></li>-->
+          <%# end %>
+<!--        </ul>-->
+<!--      </div>-->
+    <%# end %>
+    <%# byebug %>
     <%= f.input :name, required: true,
                 autofocus: true,
                 wrapper_html: {class: 'form-group'},
-                input_html: {class: 'form-control'} %>
+                input_html: {class: 'form-control'}
+                %>
     <%= f.input :email, required: true,
-                autofocus: true,
                 wrapper_html: { class: 'form-group' },
-                input_html: { class: 'form-control' } %>
+                input_html: { class: 'form-control' },
+                error: "email is invalid"
+                %>
     <%= f.input :password,
                 required: true,
                 wrapper_html: { class: 'form-group' },
-                input_html: { class: 'form-control' } %>
+                input_html: { class: 'form-control' },
+                error: "password is too short"%>
     <%= f.input :password_confirmation,
                 required: true,
                 wrapper_html: { class: 'form-group' },
-                input_html: { class: 'form-control' }%>
+                input_html: { class: 'form-control' },
+                error: "the confirmation password is not equal"%>
 
     <div class="form-actions">
     <%= f.button :submit, "Sign up" , class: 'btn btn-primary'%>

@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'aasm'
 gem 'kaminari'
+gem 'kaminari-bootstrap'
 gem 'sendgrid-ruby'
 gem 'simple_form'
 gem 'devise'
@@ -48,7 +49,8 @@ gem 'rubocop', require: false
 gem 'bootstrap', '~> 4.1.1'
 gem 'sprockets-rails'
 gem 'jquery-rails'
-
+gem 'byebug'
+gem 'pry'
 
 
 

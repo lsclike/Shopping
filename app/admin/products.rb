@@ -2,9 +2,15 @@ ActiveAdmin.register Product do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-# belongs_to :category
-permit_params :name, :price, :image
 
+permit_params :name, :price, :image, :description, :category_id
+
+
+controller do
+  def scoped_collection
+    super.includes(:category)
+  end
+end
 
   index do
     column :name
@@ -21,6 +27,17 @@ permit_params :name, :price, :image
         image_tag obj.image_url, size: '100x100' if obj.image_url.present?
       end
     end
+  end
+
+  form do |f|
+    inputs do
+      f.input :category
+      f.input :name
+      f.input :price
+      f.input :image
+      f.input :description
+    end
+    actions
   end
 # or
 #
